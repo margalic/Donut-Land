@@ -1,0 +1,334 @@
+.hero-wrapper{
+  position: relative;
+  background: #dcf2ff;          /* boja navbar pozadine */
+  overflow: visible;             /* odsijeca ikone koje strše */
+  isolation: isolate;           /* novi stacking context */
+}
+.decor-layer {
+  position: absolute;
+  inset: 0;
+  z-index: 0;                   /* iza svega */
+  pointer-events: none;
+  user-select: none;
+}
+.decor-layer img {
+  position: absolute;
+  display: block;
+  /* width / left / top / opacity / transform postavlja JS */
+  will-change: transform;
+}
+.navbar, .hero{
+  position:relative;
+  z-index: 1;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: #ffffff;
+  z-index: -1;             /* iza decor-layera (čiji je z-index: 0) */
+}
+
+.hero {
+  position: relative;
+  background: transparent;
+  padding: 60px 0 20px 40px;
+  min-height: 280px;
+  isolation: isolate;       /* potrebno da z-index: -1 radi unutar .hero */
+  z-index: 1;
+  margin-top: 6px;
+}
+.navbar,
+.hero {
+  position: relative;
+  z-index: 2;
+}
+.navbar { position: relative; background: #dcf2ff; }
+.hero   { position: relative; background: #ffffff; isolation: isolate; }
+
+.navbar > .decor-layer,
+.hero   > .decor-layer {
+  position: absolute; inset: 0; z-index: 0; pointer-events: none;
+}
+
+.nav-inner, .hero-inner {
+  position: relative; z-index: 1;
+}
+
+/* Top wavy blue (cloud-like protrusions from navbar) */
+.hero-wave-top {
+  position: absolute;
+  top: 0; left: -2%; right: -2%;
+  height: 180px;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 180' preserveAspectRatio='none'><path fill='%23dcf2ff' d='M0,0 L1440,0 L1440,95 C1280,210 1140,40 980,120 C820,200 700,20 540,110 C380,190 240,35 120,100 C70,125 30,95 0,85 Z'/></svg>");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  z-index: 1;
+}
+
+/* Bottom blue band */
+.hero-band-bottom {
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: 50px;
+  background: var(--primary);
+  z-index: 1;
+}
+
+.decor-layer {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+.decor-item {
+  position: absolute;
+  user-select: none;
+}
+
+.hero-inner {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1.05fr;
+  align-items: center;
+  gap: 40px;
+  position: relative;
+  z-index: 3;
+  min-height: 520px;
+}
+
+.hero-text { padding-left: 20px; }
+
+/* === FONT & COLOR === */
+.hero-title {
+  display: flex;
+  flex-direction: column;
+  line-height: 1;
+  font-family: 'Berkshire Swash';
+  color: #e982a7;
+  letter-spacing: 5px;
+  transform: skewX(2deg);
+}
+
+.hero-title span {
+  display: block;
+  white-space: nowrap;
+}
+
+.hero-title .line-1 {
+  font-size: clamp(48px, 6vw, 90px);
+  margin-left: 88px;
+}
+
+.hero-title .line-2 {
+  font-size: clamp(48px, 6vw, 90px);
+  margin-left: -5px;
+}
+
+.hero-title .line-3 {
+  font-size: clamp(48px, 6vw, 90px);
+  margin-left: 88px;
+}
+
+.hero-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  margin-right: 50px;
+}
+.hero-image img {
+  width: 100%;
+  max-width: 450px;
+  cursor: pointer;
+  filter: drop-shadow(0 25px 40px rgba(130, 80, 50, 0.22));
+  transition: transform 0.5s ease;
+}
+
+.hero-image img:hover {
+  transform: rotate(12deg);
+}
+
+@media (min-width: 1920px) {
+
+  .hero-inner {
+    max-width: 1700px;
+    width: 100%;
+
+    margin: 0 auto;
+
+    display: grid;
+    grid-template-columns: 1fr 1.15fr;
+
+    align-items: center;
+    gap: 120px;
+
+    min-height: 760px;
+  }
+
+  .hero-text {
+    padding-left: 60px;
+  }
+
+  .hero-title .line-1 {
+    font-size: 110px;
+    margin-left: 120px;
+  }
+
+  .hero-title .line-2 {
+    font-size: 110px;
+    margin-left: 0;
+  }
+
+  .hero-title .line-3 {
+    font-size: 110px;
+    margin-left: 120px;
+  }
+
+  .hero-image {
+    margin-right: 120px;
+  }
+
+  .hero-image img {
+    max-width: 620px;
+  }
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .hero { 
+    padding: 80px 25px 5px; 
+  }
+  .hero-inner { 
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
+    align-items: center;
+  }
+  .hero-text { 
+    padding-left: 10; 
+    text-align: left; 
+    font-size: 12px;
+  }
+  .hero-title  .line-1 { 
+    font-size: 58px;
+  }
+  .hero-title .line-2,
+  .hero-title .line-3 { 
+    margin-right: 20px;
+    font-size: 58px; 
+  }
+  .hero-image{
+    display: flex;
+    justify-content: flex-end;
+  }
+  .hero-image img { 
+    width: 380px;
+   }
+  .hero-wave-top { 
+    height: 120px; 
+  }
+}
+@media (max-width: 768px) {
+  .hero { 
+    padding: 20px 10px 40px; 
+    max-height: 400px; 
+  }
+  .hero-title .line-1 { 
+    font-size: 40px; 
+  }
+  .hero-title .line-2,
+  .hero-title .line-3 { 
+    font-size: 40px; 
+  }
+  .hero-title .line-2 {
+    padding-left: 25px;
+  }
+  .hero-title .line-3 {
+    padding-bottom: 75px; 
+  }
+  .hero-image img { 
+    max-width: 280px;
+    padding-bottom: 72px; 
+  }
+  .hero-wave-top { height: 99px; }
+  .hero-band-bottom { height: 30px; }
+}
+@media (max-width: 320px) {
+
+  .hero {
+    padding: 30px 16px 25px;
+  }
+
+  .hero-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    gap: 18px;
+    min-height: auto;
+  }
+
+  /* NASLOV */
+  .hero-text {
+    order: 1;
+    text-align: center;
+    padding: 20px 0 0;
+  }
+
+  .hero-title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    line-height: 1.05;
+    letter-spacing: 1px;
+
+    transform: rotate(-2deg);
+  }
+
+  .hero-title .line-1,
+  .hero-title .line-2,
+  .hero-title .line-3 {
+    font-size: 28px;
+
+    margin: 0;
+    padding: 0;
+
+    white-space: normal;
+  }
+
+  /* druga linija malo ulijevo */
+  .hero-title .line-2 {
+    transform: translateX(-10px);
+  }
+
+  /* SLIKA DONUTA */
+  .hero-image {
+    order: 2;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin: 0;
+  }
+
+  .hero-image img {
+    width: 185px;
+    max-width: 100%;
+
+    padding: 0;
+    margin: 0;
+  }
+
+  .hero-wave-top {
+    height: 70px;
+    background-size: cover;
+  }
+
+  .hero-band-bottom {
+    height: 18px;
+  }
+}

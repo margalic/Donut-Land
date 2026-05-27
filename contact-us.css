@@ -1,0 +1,457 @@
+.footer {
+  position: relative;
+  background: #dcf2ff;
+  padding: 50px 4px 15px;
+  overflow: hidden;
+  min-height: 500px;
+}
+
+.footer-cloud {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 1300px;
+  height: 490px;
+  pointer-events: none;
+  z-index: 0;
+}
+.footer-cloud svg {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 330%;
+  height: 500%;
+  display: block;
+}
+
+/* Container above cloud */
+.footer-inner {
+  position: relative;
+  z-index: 2;
+  max-width: 900px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+  padding-top: 50px;
+}
+
+/* ---- LEFT side ---- */
+.footer-left {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.footer-title {
+  font-family: 'Catamaran', sans-serif;
+  font-size :42px;
+  letter-spacing: 4px;
+  color: #bf905f;
+  font-weight: 400;
+  line-height: 1;
+  margin: 0;
+  margin-right: -40px;
+}
+
+.footer-underline {
+  display: block;
+  width: 130px;
+  height: 2px;
+  background: #bf905f;
+}
+
+/* Social icons row (no circles, just plain) */
+.footer-socials {
+  display: flex;
+  gap: 22px;
+  margin-top: 6px;
+}
+.footer-socials a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
+.footer-socials a:hover {
+  transform: translateY(-3px);
+  opacity: 0.75;
+}
+
+/* ---- RIGHT side: form ---- */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  width: 100%;
+  max-width: 360px;
+  margin-left: auto;
+  padding-right: 20px;
+}
+
+/* 3D brown box wrapper around inputs/textarea */
+.field-3d {
+  position: relative;
+  background: #bf905f;
+  border-radius: 12px;
+  /* darker bottom edge for the 3D raised effect */
+  box-shadow:
+    0 6px 0 #7d5a3f,
+    0 10px 16px rgba(125, 90, 63, 0.28);
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+.field-3d input,
+.field-3d textarea {
+  width: 100%;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #ffffff;
+  font-family: 'Quicksand', sans-serif;
+  font-size: 16px;
+  padding: 18px 22px;
+  resize: none;
+}
+
+.field-3d input::placeholder,
+.field-3d textarea::placeholder {
+  color: #f0e4d2;
+  opacity: 0.95;
+  font-weight: 400;
+}
+
+/* Tall textarea variant */
+.field-3d--tall textarea {
+  min-height: 220px;
+  line-height: 1.5;
+  padding: 18px 22px;
+}
+
+/* Pressed effect on focus */
+.field-3d:focus-within {
+  transform: translateY(2px);
+  box-shadow:
+    0 4px 0 #7d5a3f,
+    0 6px 10px rgba(125, 90, 63, 0.22);
+}
+
+/* Submit button — same brown 3D style, narrower */
+.submit-btn {
+  align-self: flex-end;
+  margin-top: 4px;
+  padding: 14px 38px;
+  background: #bf905f;
+  color: #ffffff;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 18px;
+  letter-spacing: 3px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  box-shadow:
+    0 5px 0 #7d5a3f,
+    0 8px 14px rgba(125, 90, 63, 0.28);
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+.submit-btn:hover {
+  transform: translateY(-1px);
+  box-shadow:
+    0 6px 0 #7d5a3f,
+    0 10px 18px rgba(125, 90, 63, 0.32);
+}
+.submit-btn:active {
+  transform: translateY(3px);
+  box-shadow:
+    0 2px 0 #7d5a3f,
+    0 4px 8px rgba(125, 90, 63, 0.2);
+}
+
+@media (min-width: 1920px) {
+
+  .footer {
+    padding: 90px 40px 40px;
+    min-height: 800px;
+  }
+
+  /* OGROMAN cloud preko skoro cijele širine */
+  .footer-cloud {
+    width: 2100px;
+    height: 820px;
+    left: 50%;
+    transform: translateX(-50%);
+    filter:
+    drop-shadow(0 0 8px rgba(246, 152, 233, 0.08))
+    drop-shadow(0 0 10px rgba(243, 98, 149, 0.12));
+  }
+
+  .footer-cloud svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  /* širi layout */
+  .footer-inner {
+    max-width: 1600px;
+
+    grid-template-columns: 1fr 1.15fr;
+
+    gap: 180px;
+
+    padding-top: 90px;
+  }
+
+  /* lijeva strana */
+  .footer-left {
+    gap: 24px;
+  }
+
+  .footer-title {
+    font-size: 74px;
+    letter-spacing: 7px;
+
+    margin-right: -80px;
+  }
+
+  .footer-underline {
+    width: 160px;
+    height: 3px;
+    border-radius: 2px;
+    transform: translateX(-35px);
+  }
+
+  .footer-socials {
+    gap: 36px;
+    margin-top: 20px;
+    transform: translateX(-25px);
+    }
+
+  .footer-socials svg {
+    width: 40px;
+    height: auto;
+  }
+
+  /* FORMA */
+  .contact-form {
+    max-width: 480px;
+    gap: 34px;
+
+    padding-right: 170px;
+  }
+
+  .field-3d {
+    border-radius: 18px;
+
+    box-shadow:
+      0 8px 0 #7d5a3f,
+      0 14px 22px rgba(125, 90, 63, 0.28);
+  }
+
+  .field-3d input,
+  .field-3d textarea {
+    font-size: 20px;
+
+    padding: 24px 32px;
+  }
+
+  .field-3d--tall textarea {
+    min-height: 320px;
+  }
+
+  .submit-btn {
+    padding: 18px 54px;
+
+    font-size: 28px;
+    letter-spacing: 4px;
+
+    border-radius: 16px;
+  }
+}
+
+/* ============== RESPONSIVE ============== */
+@media (max-width: 1024px) {
+  .footer { 
+    padding: 30px 28px 19px; 
+    min-height: auto; }
+  .footer-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    padding-top: 40px;
+  }
+  .footer-title {
+    font-size: 30px;
+    letter-spacing: 2px;
+    transform: translateX(-28px);
+  }
+  .footer-underline{
+    width: 76px;
+    height: 1.4px;
+    transform: translate(-28px);
+  }
+  .footer-left {
+    transform: translateY(-2px);
+  }
+  .contact-form {
+    margin: 0 auto;
+    padding-right: 0;
+    max-width: 280px;
+    transform: translateY(-2px);
+  }
+  .footer-cloud svg {
+    transform: scaleY(1.2);
+    transform-origin: top;
+  }
+  .field-3d input,
+  .field-3d textarea {
+    font-size: 14px;
+    padding: 10px 14px;
+  }
+  .submit-btn {
+    font-size: 14px;
+    padding: 10px 22px;
+  }
+}
+
+@media (max-width: 640px) {
+  .footer { padding: 70px 20px 50px; }
+  .footer-title { font-size: 56px; letter-spacing: 3px; }
+  .footer-underline { width: 90px; }
+  .field-3d input,
+  .field-3d textarea { font-size: 14px; padding: 14px 18px; }
+  .field-3d--tall textarea { min-height: 160px; }
+  .submit-btn { padding: 12px 30px; font-size: 16px; align-self: stretch; }
+  .contact-form { gap: 22px; }
+}
+
+@media (max-width: 320px) {
+
+  .footer {
+    padding: 50px 16px 40px;
+    overflow: hidden;
+  }
+
+  .footer-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    gap: 32px;
+
+    text-align: center;
+  }
+
+  /* LEFT SIDE */
+  .footer-left {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    gap: 12px;
+  }
+
+  .footer-title {
+    font-size: 30px;
+    letter-spacing: 3px;
+    line-height: 1;
+    margin: 0;
+  }
+
+  .footer-underline {
+    width: 60px;
+    height: 2px;
+    margin: 0;
+  }
+
+  /* SOCIAL ICONS */
+  .footer-socials {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    gap: 18px;
+    margin-top: 8px;
+
+    transform: translateX(-34px);
+  }
+
+  .footer-socials a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .footer-socials a[data-testid="social-x"] svg {
+    width: 18px;
+    height: 18px;
+  
+    transform: translateY(2px);
+  }
+  .footer-socials svg {
+    width: 22px;
+    height: 22px;
+  }
+
+  /* FORM */
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    width: 100%;
+    gap: 14px;
+  }
+
+  .field-3d {
+    width: 100%;
+    max-width: 240px;
+  }
+
+  .field-3d input,
+  .field-3d textarea {
+    width: 100%;
+
+    font-size: 14px;
+    padding: 12px 14px;
+
+    border-radius: 12px;
+    box-sizing: border-box;
+  }
+
+  .field-3d textarea {
+    min-height: 110px;
+    resize: none;
+  }
+
+  .field-3d--tall {
+    max-width: 240px;
+  }
+
+  /* BUTTON */
+  .submit-btn {
+    width: 140px;
+    height: 42px;
+
+    font-size: 14px;
+    border-radius: 12px;
+
+    margin-top: 4px;
+    margin-left: 20px;
+  }
+
+  /* CLOUD */
+  .footer-cloud img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+}

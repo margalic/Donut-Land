@@ -1,0 +1,385 @@
+.features {
+  position: relative;
+  background: #ffffff;
+  padding: 30px 40px 20px;
+  overflow: hidden;
+}
+
+.features-inner {
+  max-width: 1160px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+/* Title */
+.features-title {
+  text-align: center;
+  margin-bottom: 64px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  line-height: 1;
+}
+.ft-main {
+  font-family: 'Catamaran', sans-serif;
+  font-size: clamp(40px, 4vw, 68px);
+  letter-spacing: 8px;
+  color: #a37b56;
+  font-weight: 400;
+}
+.ft-underline {
+  display: block;
+  width: 130px;
+  height: 2px;
+  background: #a37b56;
+  border-radius: 2px;
+}
+
+/* Grid 4×2 */
+.donut-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 46px 20px;
+  align-items: start;
+}
+
+/* Card wrapper (each item) */
+.donut-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* Card frame with colored offset shadow effect */
+.dc-card-wrap {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 18px;
+}
+/* Colored offset block BEHIND the card */
+.dc-card-wrap::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--accent);
+  border-radius: 18px;
+  transform: translate(-7px, 7px);
+  z-index: 0;
+  transition: transform 0.23s ease;
+}
+
+/* White card on top */
+.dc-card {
+  position: relative;
+  z-index: 1;
+  width: 240px;
+  height: 240px;
+  background: #fafdfa;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 
+  0 2px 8px rgba(0, 0, 0, .03),
+  0 12px 24px rgba(0, 0, 0, .03);
+  cursor: pointer;
+}
+.dc-card img {
+  width: 78%;
+  height: auto;
+
+  display: block;
+
+  object-fit: contain;
+
+  transition: transform .35s ease;
+}
+
+/* Hover: lift the white card, push the shadow further */
+.donut-card:hover .dc-card { transform: translate(2px, 2px); }
+.donut-card:hover .dc-card-wrap::before { transform: translate(9px, 9px); }
+.donut-card:hover .dc-card img { transform: scale(1.04); }
+
+/* Title (below the card) */
+.dc-title {
+  font-family: 'Bebas Neue';
+  font-size: 20px
+  letter-spacing: 1.5px;
+  color: var(--accent);
+  font-weight: 400;
+  margin-bottom: 6px;
+  line-height: 1.1;
+}
+
+/* Description (ingredients) */
+.dc-desc {
+  font-family: 'Capsuula';
+  font-size: 16px;
+  color: #9f9f9f;
+  line-height: 1.3;
+  letter-spacing: 0.2px;
+  font-weight: 500;
+}
+
+/* Decorative scatter — soft opacity */
+.dec        { position: absolute; pointer-events: none; user-select: none; z-index: 1; }
+.dec-bb     { width: 22px; opacity: 0.45; }
+.dec-coffee { width: 28px; opacity: 0.35; }
+.dec-sd     { width: 60px; opacity: 0.30; }
+
+/* Blueberries */
+.f-bb-1 { top: 19%; left: 4%; opacity: 0.55; width: 25px; }
+.f-bb-2 { top: 17%; left: 70%; opacity: 0.60; }
+.f-bb-3 { top: 25%; left: 97%; opacity: 0.60;}
+.f-bb-4 { top: 72%; left: 2%; opacity: 0.55; width: 32px; transform: rotate(40deg);}
+
+/* Coffee beans */
+.f-c-1 { top: 38%; left: 2%; width: 14px; opacity: 0.40; transform: rotate(-25deg); }
+.f-c-2 { top: 34%; left: 27%; width: 15px;opacity: 0.60; transform: rotate(-33deg); }
+.f-c-3 { bottom: 18%; left: 14%; transform: rotate(35deg); }
+.f-c-4 { bottom: 8%; right: 4%; width: 15px; transform: rotate(15deg);
+  .f-c-4 { bottom: 8%; right: 4%; width: 15px; transform: rotate(15deg); } }
+
+/* Small donut outlines */
+.f-sd-1 { top: 12%;  left: 23%; width: 16px; opacity: 0.40; transform: rotate(-12deg); }
+.f-sd-2 { top: 17%;  left: 93%; width: 25px; opacity: 0.40; transform: rotate(-12deg);}
+.f-sd-3 { top: 65%;  left: 95%; width: 25px; opacity: 0.40; transform: rotate(12deg) }
+.f-sd-4 { top: 66%; left: 4%; width: 22px; opacity: 0.55; transform: rotate(15deg);  }
+
+@media (min-width: 1920px) {
+  .features {
+    padding: 80px 90px 70px;
+  }
+
+  .features-inner {
+    max-width: 1580px;
+  }
+
+  .features-title {
+    margin-bottom: 90px;
+  }
+
+  .ft-main {
+    font-size: 88px;
+    letter-spacing: 10px;
+  }
+
+  .ft-underline {
+    width: 180px;
+    height: 3px;
+  }
+
+  .donut-grid {
+    gap: 60px 45px;
+  }
+
+  .dc-card {
+    width: 330px;
+    height: 330px;
+    border-radius: 30px;
+  }
+
+  .dc-card-wrap::before {
+    border-radius: 30px;
+    transform: translate(-10px, 10px);
+  }
+
+  .dc-card img {
+    width: 82%;
+  }
+
+  .dc-title {
+    font-size: 30px;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+  }
+
+  .dc-desc {
+    font-size: 22px;
+    line-height: 1.35;
+  }
+
+  .dc-card-wrap {
+    margin-bottom: 26px;
+  }
+
+  /* dekoracije za 1920px - veće područje, ali manja prozirnost */
+  .features .dec {
+    opacity: 0.40;
+  }
+
+  .features .dec-bb {
+    width: 30px;
+    opacity: 50%;
+  }
+
+  .features .dec-coffee {
+    width: 28px;
+    opacity: 50%;
+  }
+
+  .features .dec-sd {
+    width: 30px;
+    opacity: 46%;
+  }
+
+  .f-bb-1 { top: 16%; left: 3%; width: 32px; opacity: 0.40; }
+  .f-bb-2 { top: 13%; left: 66%; width: 28px; opacity: 0.50; }
+  .f-bb-3 { top: 24%; left: 96%; width: 30px; opacity: 0.58; }
+  .f-bb-4 { top: 76%; left: 3%; width: 38px; opacity: 0.56; }
+  .f-bb-4 { top: 6%; left: 33%; width: 38px; opacity: 0.56; }
+  .f-bb-5 { top: 6%; left: 83%; width: 38px; opacity: 0.56; }
+  .f-bb-6 { top: 86%; left: 3%; width: 38px; opacity: 0.56; }
+
+  .f-c-1 { top: 40%; left: 3%; width: 20px; opacity: 0.54; }
+  .f-c-2 { top: 30%; left: 23%; width: 22px; opacity: 0.58; }
+  .f-c-3 { bottom: 15%; left: 26%; width: 30px; opacity: 0.54; }
+  .f-c-4 { bottom: 8%; right: 4%; width: 22px; opacity: 0.54; }
+  .f-c-5 { bottom: 18%; right: 44%; width: 20px; opacity: 0.54; }
+
+  .f-sd-1 { top: 10%; left: 20%; width: 28px; opacity: 0.55; }
+  .f-sd-2 { top: 15%; left: 91%; width: 38px; opacity: 0.55; }
+  .f-sd-3 { top: 68%; left: 94%; width: 38px; opacity: 0.54; }
+  .f-sd-4 { top: 95%; left: 48%; width: 32px; opacity: 0.45; }
+}
+
+/* ============== RESPONSIVE ============== */
+@media (max-width: 1024px) {
+  .features { padding: 
+    70px 28px 58px; 
+  }
+  .donut-grid { 
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 50px 28px; 
+  }
+  .donut-card:nth-last-child(2){
+    grid-column: 1 / 2;
+    justify-self: center;
+    margin-left: 140%;
+  }
+  .donut-card:last-child {
+    grid-column: 2 / 3;
+    justify-self: center;
+    margin-left: 125%;
+  }
+.f-bb-1 { top: 20%; left: 1%; opacity: 0.55; width: 25px; }
+.f-bb-2 { top: 17%; left: 70%; opacity: 0.60; }
+.f-bb-3 { top: 25%; left: 97%; opacity: 0.60;}
+.f-bb-4 { top: 78%; left: 9%; opacity: 0.45; width: 26px; transform: rotate(40deg);}
+.f-bb-5 { top: 11%; left: 74%;}
+.f-bb-6 { top: 80%; left: 88%;}
+
+.f-c-1 { top: 8%; left: 22%; opacity: 0.20; width: 22px;}
+.f-c-2 {top: 12%; left: 90%;}
+.f-c-3 { top: 90%; width: 20px;}
+.f-c-4 {top: 2%;}
+
+.f-sd-1 {top:85%; left:85%}
+.f-sd-2 {top:90%; left: 50%;}
+.f-sd-3 {top: 2%; left: 12%;}
+}
+@media (max-width: 768px) {
+  .donut-grid { 
+    grid-template-columns: repeat(2, 1fr);
+    }
+    .donut-card:nth-child(7) {
+      grid-column: 1 / 2;
+      justify-self: center;
+      margin-left: 2%;
+    }
+  
+    .donut-card:nth-child(8) {
+      grid-column: 2 / 3;
+      justify-self: center;
+      margin-left: 2%;
+    }
+  .features-title { margin-bottom: 48px; }
+}
+
+@media (max-width: 320px) {
+
+  .features {
+    padding: 35px 16px;
+  }
+
+  .features-inner {
+    width: 100%;
+    max-width: 320px;
+    margin: 0 auto;
+  }
+
+  .features-title {
+    text-align: center;
+    margin-bottom: 28px;
+  }
+
+  .ft-main {
+    font-size: 32px;
+    letter-spacing: 3px;
+  }
+
+  .ft-underline {
+    width: 55px;
+    height: 2px;
+    margin: 6px auto 0;
+  }
+
+  .donut-grid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 28px;
+    width: 100%;
+  }
+
+  .donut-card {
+    width: 100%;
+    max-width: 240px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .dc-card-wrap {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .dc-card {
+    width: 100%;
+    height: 170px;
+    border-radius: 18px;
+    overflow: hidden;
+  }
+
+  .dc-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .dc-title {
+    font-size: 17px;
+    margin-top: 12px;
+    margin-bottom: 5px;
+  }
+
+  .dc-desc {
+    font-size: 13px;
+    line-height: 1.4;
+    margin: 0 auto;
+    max-width: 220px;
+  }
+  .donut-card:nth-child(7),
+.donut-card:nth-child(8),
+.donut-card:nth-last-child(2),
+.donut-card:last-child {
+  margin-left: auto;
+  margin-right: auto;
+}
+}
